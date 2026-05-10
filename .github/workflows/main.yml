@@ -1,17 +1,20 @@
-name: Download a file from anywhere
+name: Download ramrqfix
 
 on:
-  workflow_dispatch:    # lets you run it manually from GitHub web
+  workflow_dispatch:
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
     steps:
-      - name: Download the target file
+      - name: Download ramrqfix.zip from MediaFire direct link
         run: |
-          curl -L -o myfile.zip "https://download2389.mediafire.com/h4i7xeztfpagOABTj7wcth_-ZvlBP_woE59piwnRHSdxRIbWaZaNuZPqmBAKTuwHs-m8g0NxMhvFaZrv7uNvTxSrZAtKBxknoHkM3ys3K_QUmTndFuMN-Khywd8xDfR2gUdWh7xkZCpM1Ku17w-BbPyElw-DllpSp2Za0W8gE-9XyA/8jqsyckzz09bc2d/ramrqfix.zip"
-      - name: Upload as artifact
+          curl -L -o ramrqfix.zip \
+            -H "Referer: https://www.mediafire.com/" \
+            -A "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36" \
+            "https://download2389.mediafire.com/h4i7xeztfpagOABTj7wcth_-ZvlBP_woE59piwnRHSdxRIbWaZaNuZPqmBAKTuwHs-m8g0NxMhvFaZrv7uNvTxSrZAtKBxknoHkM3ys3K_QUmTndFuMN-Khywd8xDfR2gUdWh7xkZCpM1Ku17w-BbPyElw-DllpSp2Za0W8gE-9XyA/8jqsyckzz09bc2d/ramrqfix.zip"
+      - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: downloaded-file
-          path: myfile.zip
+          name: ramrqfix-zip
+          path: ramrqfix.zip
