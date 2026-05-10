@@ -1,3 +1,17 @@
-- name: Download Requiem Revolver Mod
-  run: |
-    curl -L -o requiem_revolver.zip "https://hi.gta5-mods.com/weapons/requiem-revolver-from-resident-evil-9/download/193926"
+name: Download a file from anywhere
+
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Requiem Revolver Mod
+        run: |
+          curl -L -o requiem_revolver.zip "https://hi.gta5-mods.com/weapons/requiem-revolver-from-resident-evil-9/download/193926"
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: requiem-revolver
+          path: requiem_revolver.zip
