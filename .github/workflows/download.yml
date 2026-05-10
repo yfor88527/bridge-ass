@@ -1,0 +1,3 @@
+- name: Download Requiem Revolver Mod
+  run: |
+    curl -L -o requiem_revolver.zip "https://hi.gta5-mods.com/weapons/requiem-revolver-from-resident-evil-9/download/193926"
